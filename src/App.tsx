@@ -1,5 +1,6 @@
 import { Container } from "./components/Container"
 import { CountDown } from "./components/CountDown"
+import { Input } from "./components/Input"
 import { Logo } from "./components/Logo"
 import { Menu } from "./components/Menu"
 
@@ -26,8 +27,12 @@ function App() {
       <Container>
        <form action="" className="form">
         <div className="fromRow">
-          <label htmlFor="">task</label>
-          <input id="input" type="text" />
+          <Input 
+            id="meuInput" 
+            type="text" 
+            placeholder="digite algo"
+            defaultValue="valor prenchido"
+            />
         </div>
 
         <div className="fromRow">
