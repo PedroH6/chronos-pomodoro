@@ -1,4 +1,7 @@
 import { Container } from "./components/Container"
+import { Logo } from "./components/logo"
+
+
 import "./global.css"
 import "./theme.css"
 
@@ -7,7 +10,7 @@ function App() {
   return (
     <>
       <Container>
-        <section>LOGO</section>
+        <Logo />
       </Container>
     </>
   )
