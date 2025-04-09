@@ -1,3 +1,4 @@
+import { Container } from "./components/Container"
 import "./global.css"
 import "./theme.css"
 
@@ -5,13 +6,9 @@ import "./theme.css"
 function App() {
   return (
     <>
-      <div className="container">
-        <div className="content">
-          <section>
-            LOGO
-          </section>
-        </div>
-      </div>
+      <Container>
+        <section>LOGO</section>
+      </Container>
     </>
   )
 }
