@@ -10,6 +10,7 @@ import { Menu } from "./components/Menu"
 
 import "./global.css"
 import "./theme.css"
+import { Footer } from "./components/Footer"
 
 
 function App() {
@@ -50,6 +51,10 @@ function App() {
          <Button icon={<PlayCircleIcon/>} color="green"/>
         </div>
        </form>
+      </Container>
+
+      <Container>
+        <Footer/>
       </Container>
     </>
   )
