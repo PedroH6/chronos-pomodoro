@@ -62,6 +62,12 @@ export function MainForm() {
         activeTask: null,
         secondsRemaining: 0,
         formattedSecondsRemaining: '00:00',
+        tasks: prevState.tasks.map(tasks => {
+          if( prevState.activeTask && prevState.activeTask.id === tasks.id) {
+            return {...tasks, interrupDate: Date.now()}
+          }
+          return tasks
+        })
       }
     })
   }
