@@ -53,6 +53,19 @@ export function MainForm() {
     })
   }
 
+  function handleInterruptTask(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    event.preventDefault()
+
+    setState(prevState => {
+      return {
+        ...prevState,
+        activeTask: null,
+        secondsRemaining: 0,
+        formattedSecondsRemaining: '00:00',
+      }
+    })
+  }
+
     return (
         <form onSubmit={handleCreateNewTask} action="" className="form">
         <div className="fromRow">
@@ -84,14 +97,17 @@ export function MainForm() {
               type="submit" 
               icon={<PlayCircleIcon/>} 
               color="green"
+              key='botao_submit'
             />
           ): (
             <Button
               aria-label="Interromper tarefa atual"
               title="Interromper tarefa atual" 
               type="button" 
+              color="red"
               icon={<StopCircleIcon/>} 
-              color="red" 
+              onClick={handleInterruptTask}
+              key='botao_button'
             />
           )}
         </div>
