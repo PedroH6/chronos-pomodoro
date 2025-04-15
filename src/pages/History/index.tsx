@@ -9,14 +9,21 @@ import { useTaskContext } from '../../contexts/TaskContext/userTaskContext';
 import { formatDate } from '../../utils/formatDate';
 import { getTaskStatus } from '../../utils/getTaskStatus';
 import { sortTasks } from '../../utils/sortTasks';
+import { TaskActionTypes } from '../../contexts/TaskContext/taskAction';
  
  export function History() {
-    const {state} = useTaskContext()
+    const {state, dispatch} = useTaskContext()
     const sortedTaks = sortTasks({ tasks: state.tasks });
 
     // const sortedTask = [...state.tasks].sort((a, b) => {
     //     return b.startDate - a.startDate
     // })
+
+function handleResetHistory() {
+    if(!confirm('Tem certeza')) return
+
+    dispatch({type: TaskActionTypes.RESET_STATE})
+}
 
    return (
      <MainTemplate>
@@ -29,6 +36,7 @@ import { sortTasks } from '../../utils/sortTasks';
                color='red'
                aria-label='Apagar todo o histórico'
                title='Apagar histórico'
+               onClick={handleResetHistory}
              />
            </span>
          </Header>
