@@ -1,11 +1,9 @@
-import { Home } from "./pages/Home"
 import { TaskContextProvider } from "./contexts/TaskContext/TaskContextProvider"
+import { MessageContainer } from "./components/MessageContainer"
+import { MainRouter } from "./routes"
 
 import "./global.css"
 import "./theme.css"
-import { MessageContainer } from "./components/MessageContainer"
-
-
 
 
 function App() {
@@ -13,7 +11,7 @@ function App() {
     <>
     <TaskContextProvider>
       <MessageContainer>
-        <Home />
+        <MainRouter />
       </MessageContainer>
     </TaskContextProvider>
     </>
