@@ -8,9 +8,16 @@ import { TrashIcon } from 'lucide-react';
 import { useTaskContext } from '../../contexts/TaskContext/userTaskContext';
 import { formatDate } from '../../utils/formatDate';
 import { getTaskStatus } from '../../utils/getTaskStatus';
+import { sortTasks } from '../../utils/sortTasks';
  
  export function History() {
     const {state} = useTaskContext()
+    const sortedTaks = sortTasks({ tasks: state.tasks });
+
+    // const sortedTask = [...state.tasks].sort((a, b) => {
+    //     return b.startDate - a.startDate
+    // })
+
    return (
      <MainTemplate>
        <Container>
@@ -41,7 +48,8 @@ import { getTaskStatus } from '../../utils/getTaskStatus';
              </thead>
  
              <tbody>
-               {state.tasks.map((task) => {
+                {/* ou usando com com o comentario */}
+               {sortedTaks.map((task) => {
                 const taskTypeDictionary = {
                     workTime: 'Foco',
                     shortBreakTime: 'Descanso curto',
