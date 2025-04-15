@@ -1,3 +1,5 @@
+import { TaskStateModel } from "../models/taskStateModel";
+
 let instance: TimerWorkerManager | null = null
 
 export class TimerWorkerManager {
@@ -13,5 +15,15 @@ export class TimerWorkerManager {
         }
         return instance
     }
-    
+
+    postMessage(message: TaskStateModel) {
+        this.worker.postMessage(message)
+    }
+    onmessage(cb: (e: MessageEvent) => void) {
+        this.worker.onmessage = cb
+    }
+    terminate() {
+        this.worker.terminate()
+        instance = null
+    }
 }
