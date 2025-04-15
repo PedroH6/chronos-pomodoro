@@ -3,6 +3,8 @@ import { TaskContextProvider } from "./contexts/TaskContext/TaskContextProvider"
 
 import "./global.css"
 import "./theme.css"
+import { MessageContainer } from "./components/MessageContainer"
+
 
 
 
@@ -10,10 +12,13 @@ function App() {
   return (
     <>
     <TaskContextProvider>
-      <Home />
+      <MessageContainer>
+        <Home />
+      </MessageContainer>
     </TaskContextProvider>
     </>
   )
 }
 
 export default App
+
