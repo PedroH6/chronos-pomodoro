@@ -5,7 +5,7 @@ import { SaveIcon } from 'lucide-react';
  import { Header } from '../../components/Header';
 import { MainTemplate } from '../../templates/MainTemplates';
 import { useTaskContext } from '../../contexts/TaskContext/userTaskContext';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { showMessage } from '../../components/adapters/showMessage';
 import { TaskActionTypes } from '../../contexts/TaskContext/taskAction';
  
@@ -14,6 +14,10 @@ import { TaskActionTypes } from '../../contexts/TaskContext/taskAction';
    const workTimeInput = useRef<HTMLInputElement>(null);
    const shortBreakTimeInput = useRef<HTMLInputElement>(null);
    const longBreakTimeInput = useRef<HTMLInputElement>(null);
+
+   useEffect(() => {
+    document.title = 'Configurações - Chronos Pomodoro';
+  }, []);
 
 
     function handleSaveSettings(e: React.FormEvent<HTMLFormElement>) {

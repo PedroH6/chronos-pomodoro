@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Container } from '../../components/Container';
  import { GenericHtml } from '../../components/GeneticHtml';
  import { Header } from '../../components/Header';
@@ -5,6 +6,10 @@ import { RouterLink } from '../../components/RouterLink';
  import { MainTemplate } from '../../templates/MainTemplates';
  
  export function AboutPomodoro() {
+  useEffect(() => {
+    document.title = 'Entenda a Técnica Pomodoro - Chronos Pomodoro';
+  }, []);
+  
    return (
      <MainTemplate>
        <Container>

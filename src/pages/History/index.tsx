@@ -10,10 +10,15 @@ import { formatDate } from '../../utils/formatDate';
 import { getTaskStatus } from '../../utils/getTaskStatus';
 import { sortTasks } from '../../utils/sortTasks';
 import { TaskActionTypes } from '../../contexts/TaskContext/taskAction';
+import { useEffect } from 'react';
  
  export function History() {
     const {state, dispatch} = useTaskContext()
     const sortedTaks = sortTasks({ tasks: state.tasks });
+
+    useEffect(() => {
+      document.title = 'Histórico - Chronos Pomodoro';
+    }, []);
 
     // const sortedTask = [...state.tasks].sort((a, b) => {
     //     return b.startDate - a.startDate
@@ -24,6 +29,7 @@ function handleResetHistory() {
 
     dispatch({type: TaskActionTypes.RESET_STATE})
 }
+
 
    return (
      <MainTemplate>
