@@ -4,6 +4,7 @@ import { getNextCycle } from "../../utils/getNextCycle";
 import { initialTaskState } from "./initialTaskState";
 import { TaskActionModel, TaskActionTypes } from "./taskAction";
 
+
 export function taskReducer(
     state: TaskStateModel,
     action: TaskActionModel,
@@ -66,6 +67,10 @@ export function taskReducer(
             action.payload.secondsRemaining, 
           )
         }
+      }
+      
+      case TaskActionTypes.CHANGE_SETTINGS: {
+        return { ...state, config: { ...action.payload } };
       }
     }
   

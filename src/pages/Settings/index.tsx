@@ -7,9 +7,10 @@ import { MainTemplate } from '../../templates/MainTemplates';
 import { useTaskContext } from '../../contexts/TaskContext/userTaskContext';
 import { useRef } from 'react';
 import { showMessage } from '../../components/adapters/showMessage';
+import { TaskActionTypes } from '../../contexts/TaskContext/taskAction';
  
  export function Settings() {
-   const { state } = useTaskContext();
+   const { state, dispatch } = useTaskContext();
    const workTimeInput = useRef<HTMLInputElement>(null);
    const shortBreakTimeInput = useRef<HTMLInputElement>(null);
    const longBreakTimeInput = useRef<HTMLInputElement>(null);
@@ -49,7 +50,15 @@ import { showMessage } from '../../components/adapters/showMessage';
           return;
         }
     
-        console.log('SALVAR');
+        dispatch({
+          type: TaskActionTypes.CHANGE_SETTINGS,
+          payload: {
+            workTime,
+            shortBreakTime,
+            longBreakTime,
+          },
+        });
+        showMessage.success('Configurações salvas');
       }
 
   
